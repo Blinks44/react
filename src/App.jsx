@@ -1,12 +1,12 @@
 import PageHeader from "./components/navigation/PageHeader.jsx";
-import Order from "./components/order/Order.jsx";
+import Products from "./components/product/Products.jsx";
 
 function App() {
   return (
     <>
       <PageHeader />
 
-      <Order />
+      <Products />
     </>
   );
 }

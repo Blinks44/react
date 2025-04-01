@@ -1,7 +1,7 @@
 import { Button, Card, Image, Text } from "@chakra-ui/react";
-import OrderSelect from "./OrderSelect.jsx";
+import ProductSelect from "./ProductSelect.jsx";
 
-function OrderItem({ product }) {
+function ProductItem({ product }) {
   return (
     <Card.Root overflow="hidden">
       <Image src={product.images[0]} alt={product.title} />
@@ -15,7 +15,7 @@ function OrderItem({ product }) {
         </Text>
       </Card.Body>
       <Card.Footer flexDirection="column" gap="2">
-        <OrderSelect />
+        <ProductSelect />
         <Button w="full" variant="solid">
           Купить
         </Button>
@@ -24,4 +24,4 @@ function OrderItem({ product }) {
   );
 }
 
-export default OrderItem;
+export default ProductItem;

@@ -1,7 +1,7 @@
 import { Portal, Select, createListCollection } from "@chakra-ui/react";
 
-function OrderSelect() {
-  const frameworks = createListCollection({
+function ProductSelect() {
+  const sizes = createListCollection({
     items: [
       { label: "S", value: "s" },
       { label: "M", value: "m" },
@@ -11,7 +11,7 @@ function OrderSelect() {
   });
 
   return (
-    <Select.Root collection={frameworks} size="sm" width="full">
+    <Select.Root collection={sizes} size="sm" width="full">
       <Select.HiddenSelect />
       <Select.Label>Выберите размер</Select.Label>
       <Select.Control>
@@ -25,9 +25,9 @@ function OrderSelect() {
       <Portal>
         <Select.Positioner>
           <Select.Content>
-            {frameworks.items.map((framework) => (
-              <Select.Item item={framework} key={framework.value}>
-                {framework.label}
+            {sizes.items.map((size) => (
+              <Select.Item item={size} key={size.value}>
+                {size.label}
                 <Select.ItemIndicator />
               </Select.Item>
             ))}
@@ -38,4 +38,4 @@ function OrderSelect() {
   );
 }
 
-export default OrderSelect;
+export default ProductSelect;
