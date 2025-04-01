@@ -1,6 +1,5 @@
-import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import OrderItem from "./OrderItem.jsx";
-import OrderSelect from "./OrderSelect.jsx";
 import { useEffect, useState } from "react";
 
 function Order() {
@@ -17,7 +16,6 @@ function Order() {
 
   return (
     <>
-      s
       <Container mt="12">
         <Heading as="h1" size="3xl" textAlign="center">
           Сделать заказ
@@ -25,7 +23,7 @@ function Order() {
 
         <SimpleGrid columns={{ sm: 2, md: 3, lg: 4 }} gap="8" mt="8">
           {products.map((product) => (
-            <OrderItem product={product} />
+            <OrderItem product={product} key={product.id} />
           ))}
         </SimpleGrid>
       </Container>
