@@ -11,7 +11,7 @@ function OrderSelect() {
   });
 
   return (
-    <Select.Root collection={frameworks} size="sm" width="320px">
+    <Select.Root collection={frameworks} size="sm" width="full">
       <Select.HiddenSelect />
       <Select.Label>Выберите размер</Select.Label>
       <Select.Control>
