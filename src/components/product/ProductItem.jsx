@@ -3,7 +3,7 @@ import ProductSelect from "./ProductSelect.jsx";
 
 function ProductItem({ product }) {
   return (
-    <Card.Root overflow="hidden">
+    <Card.Root overflow="hidden" _hover={{ scale: 1.02 }} transition="scale 0.2s">
       <Image src={product.images[0]} alt={product.title} />
       <Card.Body gap="2">
         <Card.Title>{product.title}</Card.Title>
