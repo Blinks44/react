@@ -35,14 +35,14 @@ function ProductFilter({ handleFilterChange }) {
     <>
       {loading ? (
         <Stack>
-          <Skeleton height="6" width="96" />
-          <Skeleton height="6" width="96" />
+          <Skeleton height="6" width="72" />
+          <Skeleton height="6" width="72" />
         </Stack>
       ) : (
         <Select.Root
           collection={categoriesCollection}
           size="sm"
-          width="96"
+          width="72"
           value={selectedCategory}
           onValueChange={(e) => handleFilter(e.value)}
         >

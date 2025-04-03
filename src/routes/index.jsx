@@ -1,9 +1,14 @@
 import { Box, Container, Heading, SimpleGrid, Skeleton, SkeletonText, Stack } from "@chakra-ui/react";
-import ProductItem from "./ProductItem.jsx";
+import ProductItem from "../components/product/ProductItem.jsx";
 import { useEffect, useState } from "react";
-import ProductFilter from "./ProductFilter.jsx";
+import ProductFilter from "../components/product/ProductFilter.jsx";
+import { createFileRoute } from "@tanstack/react-router";
 
-function Products({ handleCartChange }) {
+export const Route = createFileRoute("/")({
+  component: Index,
+});
+
+function Index({ handleCartChange }) {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(true);
@@ -66,4 +71,4 @@ function Products({ handleCartChange }) {
   );
 }
 
-export default Products;
+export default Index;

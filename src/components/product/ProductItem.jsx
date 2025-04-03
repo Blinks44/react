@@ -1,6 +1,9 @@
 import { Button, Card, Image, Text } from "@chakra-ui/react";
+import { useCart } from "../../routes/__root.jsx";
 
-function ProductItem({ product, handleCartChange }) {
+function ProductItem({ product }) {
+  const { cart, setCart } = useCart();
+
   return (
     <Card.Root overflow="hidden" _hover={{ scale: 1.02 }} transition="scale 0.2s">
       <Image src={product.images[0]} alt={product.title} />
@@ -14,7 +17,7 @@ function ProductItem({ product, handleCartChange }) {
         </Text>
       </Card.Body>
       <Card.Footer flexDirection="column" gap="2">
-        <Button w="full" variant="solid" onClick={() => handleCartChange(product)}>
+        <Button w="full" variant="solid" onClick={() => setCart([...cart, product])}>
           Купить
         </Button>
       </Card.Footer>

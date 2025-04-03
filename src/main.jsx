@@ -1,12 +1,18 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import { Provider } from "./components/ui/provider.jsx";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+
+const router = createRouter({
+  routeTree,
+  defaultPreload: "intent",
+});
 
 createRoot(document.getElementById("root")).render(
   <Provider>
     <StrictMode>
-      <App />
+      <RouterProvider router={router} />
     </StrictMode>
   </Provider>,
 );

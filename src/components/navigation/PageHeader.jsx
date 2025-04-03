@@ -1,6 +1,9 @@
 import { Circle, Box, Container, Flex, Float, Image, Link, Text } from "@chakra-ui/react";
+import { useCart } from "../../routes/__root.jsx";
 
-function PageHeader({ cart }) {
+function PageHeader() {
+  const { cart } = useCart();
+
   return (
     <Box
       as="header"
