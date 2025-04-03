@@ -1,6 +1,6 @@
-import { Box, Container, Flex, Image } from "@chakra-ui/react";
+import { Circle, Box, Container, Flex, Float, Image, Link, Text } from "@chakra-ui/react";
 
-function PageHeader() {
+function PageHeader({ cart }) {
   return (
     <Box
       as="header"
@@ -13,11 +13,24 @@ function PageHeader() {
     >
       <Container>
         <Flex py="4" justifyContent="space-between" alignItems="center">
-          <Box>
+          <Link href="/">
             <Image src="/logo.png" alt="logo" width="100px" />
-          </Box>
+          </Link>
 
-          <Box as="nav">Корзина</Box>
+          <Box as="nav" pos="relative">
+            <Text zIndex="10" pos="relative">
+              Корзина
+            </Text>
+            {cart.length ? (
+              <Float>
+                <Circle size="4.5" fontSize="xs" bg="red.500" color="white">
+                  {cart.length}
+                </Circle>
+              </Float>
+            ) : (
+              ""
+            )}
+          </Box>
         </Flex>
       </Container>
     </Box>

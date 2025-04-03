@@ -1,7 +1,6 @@
 import { Button, Card, Image, Text } from "@chakra-ui/react";
-import ProductSelect from "./ProductSelect.jsx";
 
-function ProductItem({ product }) {
+function ProductItem({ product, handleCartChange }) {
   return (
     <Card.Root overflow="hidden" _hover={{ scale: 1.02 }} transition="scale 0.2s">
       <Image src={product.images[0]} alt={product.title} />
@@ -15,8 +14,7 @@ function ProductItem({ product }) {
         </Text>
       </Card.Body>
       <Card.Footer flexDirection="column" gap="2">
-        <ProductSelect />
-        <Button w="full" variant="solid">
+        <Button w="full" variant="solid" onClick={() => handleCartChange(product)}>
           Купить
         </Button>
       </Card.Footer>

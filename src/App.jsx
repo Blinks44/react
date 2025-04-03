@@ -1,12 +1,19 @@
 import PageHeader from "./components/navigation/PageHeader.jsx";
 import Products from "./components/product/Products.jsx";
+import { useState } from "react";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  function handleCartChange(cartItem) {
+    setCart([...cart, cartItem]);
+  }
+
   return (
     <>
-      <PageHeader />
+      <PageHeader cart={cart} />
 
-      <Products />
+      <Products handleCartChange={handleCartChange} />
     </>
   );
 }
