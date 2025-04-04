@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Index({ handleCartChange }) {
+function Index() {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(true);
@@ -61,9 +61,7 @@ function Index({ handleCartChange }) {
               </Stack>
             </>
           ) : (
-            products.map((product) => (
-              <ProductItem product={product} key={product.id} handleCartChange={handleCartChange} />
-            ))
+            products.map((product) => <ProductItem product={product} key={product.id} />)
           )}
         </SimpleGrid>
       </Container>
