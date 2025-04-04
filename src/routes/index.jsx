@@ -1,33 +1,26 @@
 import { Box, Container, Heading, SimpleGrid, Skeleton, SkeletonText, Stack } from "@chakra-ui/react";
 import ProductItem from "../components/product/ProductItem.jsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductFilter from "../components/product/ProductFilter.jsx";
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import getProducts from "../api/getProducts.js";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
-  const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("");
-  const [loading, setLoading] = useState(true);
 
-  async function getProducts() {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products/?categorySlug=${filter}`);
-    return await res.json();
-  }
+  const { isLoading, data: products } = useQuery({
+    queryKey: ["products", filter],
+    queryFn: getProducts,
+  });
 
   function handleFilterChange(filter) {
     setFilter(filter);
   }
-
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data);
-      setLoading(false);
-    });
-  }, [filter]);
 
   return (
     <>
@@ -41,7 +34,7 @@ function Index() {
         </Box>
 
         <SimpleGrid columns={{ sm: 2, md: 3, lg: 4 }} gap="8" mt="8">
-          {loading ? (
+          {isLoading ? (
             <>
               <Stack>
                 <Skeleton w="full" h="52" />

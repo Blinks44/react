@@ -25,6 +25,7 @@ function RootComponent() {
         <PageHeader />
         <Outlet />
       </CartContext>
+
       <TanStackRouterDevtools position="bottom-left" />
       <ReactQueryDevtools />
     </>
