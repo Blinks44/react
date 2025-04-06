@@ -1,4 +1,4 @@
-function CartCount() {
+function CartItem() {
   return (
     <div>
       <span>1</span>
@@ -6,4 +6,4 @@ function CartCount() {
   );
 }
 
-export default CartCount;
+export default CartItem;

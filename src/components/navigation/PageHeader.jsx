@@ -1,8 +1,9 @@
-import { Circle, Box, Container, Flex, Float, Image, Link, Text } from "@chakra-ui/react";
-import { useCart } from "../../routes/__root.jsx";
+import { Circle, Box, Container, Flex, Float, Image } from "@chakra-ui/react";
+import { useCartStore } from "../../store/useCartStore.js";
+import { Link } from "@tanstack/react-router";
 
 function PageHeader() {
-  const { cart } = useCart();
+  const { cart } = useCartStore();
 
   return (
     <Box
@@ -12,18 +13,18 @@ function PageHeader() {
       shadow="sm"
       bgColor="white/70"
       backdropFilter="blur(8px)"
-      zIndex={50}
+      zIndex="50"
     >
       <Container>
         <Flex py="4" justifyContent="space-between" alignItems="center">
-          <Link href="/">
+          <Link to="/">
             <Image src="/logo.png" alt="logo" width="100px" />
           </Link>
 
           <Box as="nav" pos="relative">
-            <Text zIndex="10" pos="relative">
+            <Link to="/cart" zIndex="10" pos="relative">
               Корзина
-            </Text>
+            </Link>
             {cart.length ? (
               <Float>
                 <Circle size="4.5" fontSize="xs" bg="red.500" color="white">

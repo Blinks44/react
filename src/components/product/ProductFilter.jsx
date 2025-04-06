@@ -1,39 +1,28 @@
 import { createListCollection, Stack, Portal, Select, Skeleton } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import getCategories from "../../api/getCategories.js";
+import { useQuery } from "@tanstack/react-query";
 
 function ProductFilter({ handleFilterChange }) {
-  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  async function getCategories() {
-    const res = await fetch("https://api.escuelajs.co/api/v1/categories");
-    return await res.json();
-  }
 
   function handleFilter(category) {
     setSelectedCategory(category);
     handleFilterChange(category);
   }
 
-  const categoriesCollection = createListCollection({
-    items: categories,
+  const { isLoading, data } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getCategories,
   });
 
-  useEffect(() => {
-    getCategories().then((data) => {
-      const formattedData = data.map((item) => ({
-        label: item.name,
-        value: item.slug,
-      }));
-      setCategories(formattedData);
-      setLoading(false);
-    });
-  }, []);
+  const categoriesCollection = createListCollection({
+    items: data?.selectCategories || [],
+  });
 
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <Stack>
           <Skeleton height="6" width="72" />
           <Skeleton height="6" width="72" />

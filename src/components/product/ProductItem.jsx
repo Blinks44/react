@@ -1,12 +1,12 @@
 import { Button, Card, Image, Text } from "@chakra-ui/react";
-import { useCart } from "../../routes/__root.jsx";
+import { useCartStore } from "../../store/useCartStore.js";
 
 function ProductItem({ product }) {
-  const { cart, setCart } = useCart();
+  const { addToCart } = useCartStore();
 
   return (
     <Card.Root overflow="hidden" _hover={{ scale: 1.02 }} transition="scale 0.2s">
-      <Image src={product.images[0]} alt={product.title} />
+      <Image src={product.images[0]} alt={product.title} objectFit="cover" w="full" h="52" />
       <Card.Body gap="2">
         <Card.Title>{product.title}</Card.Title>
         <Card.Description lineClamp="5" mt="auto">
@@ -17,7 +17,7 @@ function ProductItem({ product }) {
         </Text>
       </Card.Body>
       <Card.Footer flexDirection="column" gap="2">
-        <Button w="full" variant="solid" onClick={() => setCart([...cart, product])}>
+        <Button w="full" variant="solid" onClick={() => addToCart(product)}>
           Купить
         </Button>
       </Card.Footer>

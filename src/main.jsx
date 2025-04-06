@@ -12,11 +12,11 @@ const router = createRouter({
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
-  <Provider>
-    <StrictMode>
+  <StrictMode>
+    <Provider>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
-    </StrictMode>
-  </Provider>,
+    </Provider>
+  </StrictMode>,
 );
