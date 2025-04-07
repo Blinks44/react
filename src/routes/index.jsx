@@ -15,6 +15,7 @@ import ProductFilter from "../components/product/ProductFilter.jsx";
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import getProducts from "../api/getProducts.js";
+import PageBanner from "../components/navigation/PageBanner.jsx";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -34,31 +35,7 @@ function Index() {
 
   return (
     <>
-      <Box
-        p="20"
-        bgImage="url(/products.jpg)"
-        bgSize="cover"
-        bgPos="center"
-        pos="relative"
-        _before={{
-          content: '""',
-          position: "absolute",
-          inset: "0",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-        }}
-      >
-        <Heading
-          as="h1"
-          size={{ base: "3xl", lg: "4xl" }}
-          color="white"
-          textAlign="center"
-          pos="relative"
-          zIndex="10"
-          textShadow="0 0 6px black"
-        >
-          Товары
-        </Heading>
-      </Box>
+      <PageBanner title={"Товары"} image={"/products.jpg"} />
 
       <Container mt="8">
         <ProductFilter handleFilterChange={handleFilterChange} />
