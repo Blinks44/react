@@ -25,14 +25,12 @@ function PageHeader() {
             <Link to="/cart" zIndex="10" pos="relative">
               Корзина
             </Link>
-            {cart.length ? (
+            {cart.length > 0 && (
               <Float>
                 <Circle size="4.5" fontSize="xs" bg="red.500" color="white">
                   {cart.length}
                 </Circle>
               </Float>
-            ) : (
-              ""
             )}
           </Box>
         </Flex>
