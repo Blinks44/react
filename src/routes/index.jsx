@@ -1,14 +1,4 @@
-import {
-  Box,
-  Container,
-  GridItem,
-  Heading,
-  SimpleGrid,
-  Skeleton,
-  SkeletonText,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Container, GridItem, SimpleGrid, Skeleton, SkeletonText, Stack, Text } from "@chakra-ui/react";
 import ProductItem from "../components/product/ProductItem.jsx";
 import { useState } from "react";
 import ProductFilter from "../components/product/ProductFilter.jsx";
@@ -18,10 +8,10 @@ import getProducts from "../api/getProducts.js";
 import PageBanner from "../components/navigation/PageBanner.jsx";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: RouteComponent,
 });
 
-function Index() {
+function RouteComponent() {
   const [filter, setFilter] = useState("");
 
   const { isLoading, data: products } = useQuery({
@@ -79,5 +69,3 @@ function Index() {
     </>
   );
 }
-
-export default Index;

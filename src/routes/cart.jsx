@@ -1,19 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCartStore } from "../store/useCartStore.js";
-import { Container, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Container, SimpleGrid, Text } from "@chakra-ui/react";
 import CartItem from "../components/cart/CartItem.jsx";
 import PageBanner from "../components/navigation/PageBanner.jsx";
 
 export const Route = createFileRoute("/cart")({
-  component: Cart,
+  component: RouteComponent,
 });
 
-function Cart() {
+function RouteComponent() {
   const { cart } = useCartStore();
 
   return (
     <>
-      <PageBanner title={"Корзина"} image={"/products.jpg"} />
+      <PageBanner title={"Корзина"} image={"/cart.jpg"} />
 
       <Container mt={8}>
         <SimpleGrid columns={{ base: 2, md: "1" }} gap={4}>
