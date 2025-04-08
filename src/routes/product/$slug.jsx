@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import getProduct from "../api/getProduct.js";
+import getProduct from "../../api/getProduct.js";
 import { Container } from "@chakra-ui/react";
-import ProductSingle from "../components/product/ProductSingle.jsx";
+import ProductSingle from "../../components/product/ProductSingle.jsx";
 
 export const Route = createFileRoute("/product/$slug")({
   component: RouteComponent,

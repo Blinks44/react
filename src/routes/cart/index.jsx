@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCartStore } from "../store/useCartStore.js";
+import { useCartStore } from "../../store/useCartStore.js";
 import { Container, SimpleGrid, Text } from "@chakra-ui/react";
-import CartItem from "../components/cart/CartItem.jsx";
-import PageBanner from "../components/navigation/PageBanner.jsx";
+import CartItem from "../../components/cart/CartItem.jsx";
+import PageBanner from "../../components/navigation/PageBanner.jsx";
 
-export const Route = createFileRoute("/cart")({
+export const Route = createFileRoute("/cart/")({
   component: RouteComponent,
 });
 
