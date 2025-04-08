@@ -5,7 +5,7 @@ function ProductSingle({ product }) {
     <Grid
       as={"article"}
       gridTemplateColumns={{ md: "50% 1fr" }}
-      gridTemplateAreas={"image title" + "image description"}
+      gridTemplateAreas={"'image title'" + "'image description'"}
       gridTemplateRows={"auto auto auto"}
       alignItems={"start"}
       gap={4}
