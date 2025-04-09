@@ -2,7 +2,7 @@ import { Button, Card, Image, Text } from "@chakra-ui/react";
 import { useCartStore } from "../../store/useCartStore.js";
 import { Link } from "@tanstack/react-router";
 
-function ProductItem({ product }) {
+function ProductCard({ product }) {
   const { addToCart } = useCartStore();
 
   return (
@@ -30,4 +30,4 @@ function ProductItem({ product }) {
   );
 }
 
-export default ProductItem;
+export default ProductCard;

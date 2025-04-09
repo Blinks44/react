@@ -1,5 +1,5 @@
 import { Container, GridItem, SimpleGrid, Skeleton, SkeletonText, Stack, Text } from "@chakra-ui/react";
-import ProductItem from "../components/product/ProductItem.jsx";
+import ProductCard from "../components/product/ProductCard.jsx";
 import { useState } from "react";
 import ProductFilter from "../components/product/ProductFilter.jsx";
 import { createFileRoute } from "@tanstack/react-router";
@@ -53,7 +53,7 @@ function RouteComponent() {
           ) : (
             <>
               {products.length > 0 &&
-                products.map((product) => <ProductItem product={product} key={product.id} />)}
+                products.map((product) => <ProductCard product={product} key={product.id} />)}
 
               {products.length === 0 && (
                 <GridItem colSpan={12}>
