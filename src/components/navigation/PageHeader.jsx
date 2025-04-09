@@ -13,7 +13,7 @@ function PageHeader() {
       shadow="sm"
       bgColor="white/70"
       backdropFilter="blur(8px)"
-      zIndex="50"
+      zIndex={50}
     >
       <Container>
         <Flex py="4" justifyContent="space-between" alignItems="center">
@@ -22,11 +22,11 @@ function PageHeader() {
           </Link>
 
           <Box as="nav" pos="relative">
-            <Link to="/cart" zIndex="10" pos="relative">
+            <Link to="/cart" pos="relative">
               Корзина
             </Link>
             {cart.length > 0 && (
-              <Float>
+              <Float zIndex={-1}>
                 <Circle size="4.5" fontSize="xs" bg="red.500" color="white">
                   {cart.length}
                 </Circle>

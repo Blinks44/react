@@ -21,7 +21,7 @@ function PageBanner({ title, image }) {
         color="white"
         textAlign="center"
         pos="relative"
-        zIndex="10"
+        zIndex={10}
         textShadow="0 0 6px black"
       >
         {title}
