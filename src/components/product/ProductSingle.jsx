@@ -1,29 +1,30 @@
-import { Box, Container, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Grid, Heading, Image, Separator, Text } from "@chakra-ui/react";
 
 function ProductSingle({ product }) {
   return (
-    <Grid
-      as={"article"}
-      gridTemplateColumns={{ md: "50% 1fr" }}
-      gridTemplateAreas={"'image title'" + "'image description'"}
-      gridTemplateRows={"auto auto auto"}
-      alignItems={"start"}
-      gap={4}
-    >
-      <Heading as={"h1"} fontSize={{ md: "xl" }} gridArea={"title"}>
-        {product.title}
-      </Heading>
-      <Image
-        src={product.images[0]}
-        alt={product.title}
-        objectFit="cover"
-        w="full"
-        maxH={"300px"}
-        order={{ md: "-1" }}
-        gridArea={"image"}
-      />
-      <Text gridArea={"description"}>{product.description}</Text>
-    </Grid>
+    <Flex as={"article"} flexDir={{ base: "column", md: "row" }} alignItems={"start"} gap={4}>
+      <Image w={"1/2"} hideBelow={"md"} src={product.images[0]} alt={product.title} objectFit="cover" />
+
+      <Flex flexDir={"column"}>
+        <Heading as={"h1"} fontSize={{ md: "2xl" }}>
+          {product.title}
+        </Heading>
+        <Separator mt={4} w={20} borderColor={"black"} size={"lg"} />
+        <Text mt={4} fontWeight={"700"} fontSize={"xl"}>
+          ${product.price}
+        </Text>
+        <Image
+          hideFrom={"md"}
+          src={product.images[0]}
+          alt={product.title}
+          objectFit="cover"
+          w="full"
+          maxH={"300px"}
+          mt={4}
+        />
+        <Text mt={4}>{product.description}</Text>
+      </Flex>
+    </Flex>
   );
 }
 
