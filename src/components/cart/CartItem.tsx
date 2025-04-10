@@ -1,6 +1,7 @@
 import { Box, Card, Image } from "@chakra-ui/react";
+import { Product } from "@/interfaces";
 
-function CartItem({ item }) {
+function CartItem({ item }: { item: Product }) {
   return (
     <Card.Root flexDirection={{ base: "column", md: "row" }} overflow="hidden" alignItems="center">
       <Image
@@ -14,12 +15,7 @@ function CartItem({ item }) {
       <Box>
         <Card.Body>
           <Card.Title mb="2">{item.title}</Card.Title>
-          <Card.Description lineClamp={3}>
-            Caffè latte is a coffee beverage of Italian origin made with espresso and steamed milk. Caffè
-            latte is a coffee beverage of Italian origin made with espresso and steamed milk. latte is a
-            coffee beverage of Italian origin made with espresso and steamed milk. latte is a coffee beverage
-            of Italian origin made with espresso and steamed milk.
-          </Card.Description>
+          <Card.Description lineClamp={3}>{item.description}</Card.Description>
         </Card.Body>
       </Box>
     </Card.Root>

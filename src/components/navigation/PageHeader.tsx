@@ -1,5 +1,5 @@
 import { Circle, Box, Container, Flex, Float, Image } from "@chakra-ui/react";
-import { useCartStore } from "../../store/useCartStore.js";
+import { useCartStore } from "@/store/useCartStore.ts";
 import { Link } from "@tanstack/react-router";
 
 function PageHeader() {
@@ -22,9 +22,7 @@ function PageHeader() {
           </Link>
 
           <Box as="nav" pos="relative">
-            <Link to="/cart" pos="relative">
-              Корзина
-            </Link>
+            <Link to="/cart">Корзина</Link>
             {cart.length > 0 && (
               <Float zIndex={-1}>
                 <Circle size="4.5" fontSize="xs" bg="red.500" color="white">

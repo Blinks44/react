@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCartStore } from "../../store/useCartStore.js";
-import { Container, SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
-import CartItem from "../../components/cart/CartItem.jsx";
-import PageBanner from "../../components/navigation/PageBanner.jsx";
+import { useCartStore } from "@/store/useCartStore.ts";
+import { Container, SimpleGrid, Text } from "@chakra-ui/react";
+import CartItem from "../../components/cart/CartItem.tsx";
+import PageBanner from "../../components/navigation/PageBannerе.tsx";
 
 export const Route = createFileRoute("/cart/")({
   component: RouteComponent,
@@ -16,7 +16,7 @@ function RouteComponent() {
       <PageBanner title={"Корзина"} image={"/cart.jpg"} />
 
       <Container mt={8}>
-        <SimpleGrid columns={{ base: 2, md: "1" }} gap={4}>
+        <SimpleGrid columns={{ base: 2, md: 1 }} gap={4}>
           {cart.length > 0 && cart.map((item) => <CartItem item={item} />)}
         </SimpleGrid>
 

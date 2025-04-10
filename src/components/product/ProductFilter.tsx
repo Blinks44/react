@@ -1,12 +1,12 @@
 import { createListCollection, Stack, Portal, Select, Skeleton } from "@chakra-ui/react";
 import { useState } from "react";
-import getCategories from "../../api/getCategories.js";
+import getCategories from "../../api/getCategories.ts";
 import { useQuery } from "@tanstack/react-query";
 
-function ProductFilter({ handleFilterChange }) {
-  const [selectedCategory, setSelectedCategory] = useState([]);
+function ProductFilter({ handleFilterChange }: { handleFilterChange: Function }) {
+  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
-  function handleFilter(category) {
+  function handleFilter(category: string[]) {
     setSelectedCategory(category);
     handleFilterChange(category);
   }

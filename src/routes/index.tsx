@@ -1,11 +1,11 @@
 import { Container, GridItem, SimpleGrid, Skeleton, SkeletonText, Stack, Text } from "@chakra-ui/react";
-import ProductCard from "../components/product/ProductCard.jsx";
+import ProductCard from "../components/product/ProductCard.tsx";
 import { useState } from "react";
-import ProductFilter from "../components/product/ProductFilter.jsx";
+import ProductFilter from "../components/product/ProductFilter.tsx";
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import getProducts from "../api/getProducts.js";
-import PageBanner from "../components/navigation/PageBanner.jsx";
+import getProducts from "../api/getProducts.ts";
+import PageBanner from "../components/navigation/PageBannerе.js";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -19,7 +19,7 @@ function RouteComponent() {
     queryFn: getProducts,
   });
 
-  function handleFilterChange(filter) {
+  function handleFilterChange(filter: string) {
     setFilter(filter);
   }
 
@@ -52,10 +52,11 @@ function RouteComponent() {
             </>
           ) : (
             <>
-              {products.length > 0 &&
+              {products &&
+                products.length > 0 &&
                 products.map((product) => <ProductCard product={product} key={product.id} />)}
 
-              {products.length === 0 && (
+              {products && products.length === 0 && (
                 <GridItem colSpan={12}>
                   <Text textStyle={{ base: "xl", md: "3xl" }} textAlign={"center"}>
                     В данной категории товаров еще нет...

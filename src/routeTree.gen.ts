@@ -113,7 +113,7 @@ export const routeTree = rootRoute
 {
   "routes": {
     "__root__": {
-      "filePath": "__root.jsx",
+      "filePath": "__root.tsx",
       "children": [
         "/",
         "/product/$slug",
@@ -121,13 +121,13 @@ export const routeTree = rootRoute
       ]
     },
     "/": {
-      "filePath": "index.jsx"
+      "filePath": "index.tsx"
     },
     "/product/$slug": {
       "filePath": "product/$slug.jsx"
     },
     "/cart/": {
-      "filePath": "cart/index.jsx"
+      "filePath": "cart/index.tsx"
     }
   }
 }

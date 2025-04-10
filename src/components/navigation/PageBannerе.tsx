@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
 
-function PageBanner({ title, image }) {
+function PageBanner({ title, image }: { title: string; image: string }) {
   return (
     <Box
       p="20"

@@ -1,8 +1,9 @@
 import { Button, Card, Image, Text } from "@chakra-ui/react";
-import { useCartStore } from "../../store/useCartStore.js";
+import { useCartStore } from "@/store/useCartStore.js";
 import { Link } from "@tanstack/react-router";
+import { Product } from "@/interfaces";
 
-function ProductCard({ product }) {
+function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCartStore();
 
   return (
