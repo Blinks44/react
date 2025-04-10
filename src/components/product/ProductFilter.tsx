@@ -17,7 +17,7 @@ function ProductFilter({ handleFilterChange }: { handleFilterChange: Function })
   });
 
   const categoriesCollection = createListCollection({
-    items: data?.selectCategories || [],
+    items: data?.categoriesForSelect || [],
   });
 
   return (

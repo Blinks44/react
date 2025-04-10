@@ -1,7 +1,8 @@
 import { Badge, Button, Flex, Heading, Image, Separator, Text } from "@chakra-ui/react";
-import { useCartStore } from "../../store/useCartStore.ts";
+import { useCartStore } from "@/store/useCartStore.ts";
+import { Product } from "@/interfaces";
 
-function ProductSingle({ product }) {
+function ProductSingle({ product }: { product: Product }) {
   const { addToCart } = useCartStore();
 
   return (

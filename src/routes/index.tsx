@@ -5,7 +5,7 @@ import ProductFilter from "../components/product/ProductFilter.tsx";
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import getProducts from "../api/getProducts.ts";
-import PageBanner from "../components/navigation/PageBannerе.js";
+import PageBanner from "../components/navigation/PageBanner.tsx";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
