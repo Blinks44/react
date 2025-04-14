@@ -13,7 +13,7 @@ const RouteComponent = () => {
 
       <Container mt={8}>
         <SimpleGrid columns={{ base: 2, md: 1 }} gap={4}>
-          {cart.length > 0 && cart.map((item) => <CartItem item={item} />)}
+          {cart.length > 0 && cart.map((item) => <CartItem item={item} key={item.id} />)}
         </SimpleGrid>
 
         {cart.length === 0 && (

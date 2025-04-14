@@ -1,7 +1,11 @@
-import { Box, Card, Image } from "@chakra-ui/react";
+import { Box, Button, Card, Image, Icon } from "@chakra-ui/react";
 import { Product } from "@/interfaces";
+import { LuTrash2 } from "react-icons/lu";
+import { useCartStore } from "@/store/useCartStore.ts";
 
 const CartItem = ({ item }: { item: Product }) => {
+  const { removeFromCart } = useCartStore();
+
   return (
     <Card.Root flexDirection={{ base: "column", md: "row" }} overflow="hidden" alignItems="center">
       <Image
@@ -13,11 +17,25 @@ const CartItem = ({ item }: { item: Product }) => {
         flexShrink={0}
       />
       <Box>
-        <Card.Body>
+        <Card.Body p={6}>
           <Card.Title mb="2">{item.title}</Card.Title>
           <Card.Description lineClamp={2}>{item.description}</Card.Description>
         </Card.Body>
       </Box>
+      <Button
+        bg={"red.100"}
+        flexShrink={0}
+        flexBasis={"40px"}
+        display={"flex"}
+        justifyContent={"center"}
+        h={"full"}
+        _hover={{ bg: "red.200" }}
+        onClick={() => removeFromCart(item.id)}
+      >
+        <Icon color={"red.500"}>
+          <LuTrash2 />
+        </Icon>
+      </Button>
     </Card.Root>
   );
 };
