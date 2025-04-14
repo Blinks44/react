@@ -10,7 +10,7 @@ interface CategoriesResponse {
   categoriesForSelect: SelectOption[];
 }
 
-async function getCategories(): Promise<CategoriesResponse> {
+const getCategories = async (): Promise<CategoriesResponse> => {
   const res = await fetch("https://api.escuelajs.co/api/v1/categories");
   const categories: Category[] = await res.json();
 
@@ -23,6 +23,6 @@ async function getCategories(): Promise<CategoriesResponse> {
     categories,
     categoriesForSelect,
   };
-}
+};
 
 export default getCategories;

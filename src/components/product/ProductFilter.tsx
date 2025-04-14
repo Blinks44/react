@@ -3,7 +3,7 @@ import { useState } from "react";
 import getCategories from "../../api/getCategories.ts";
 import { useQuery } from "@tanstack/react-query";
 
-function ProductFilter({ handleFilterChange }: { handleFilterChange: Function }) {
+const ProductFilter = ({ handleFilterChange }: { handleFilterChange: Function }) => {
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
   function handleFilter(category: string[]) {
@@ -61,6 +61,6 @@ function ProductFilter({ handleFilterChange }: { handleFilterChange: Function })
       )}
     </>
   );
-}
+};
 
 export default ProductFilter;

@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
 
-function PageBanner({ title, image }: { title: string; image: string }) {
+const PageBanner = ({ title, image }: { title: string; image: string }) => {
   return (
     <Box
       p="20"
@@ -28,6 +28,6 @@ function PageBanner({ title, image }: { title: string; image: string }) {
       </Heading>
     </Box>
   );
-}
+};
 
 export default PageBanner;

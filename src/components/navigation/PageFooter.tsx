@@ -2,7 +2,7 @@ import { Box, Circle, Container, Flex, HStack, Image, Separator, Link as ChakraL
 import { Link } from "@tanstack/react-router";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 
-function PageFooter() {
+const PageFooter = () => {
   return (
     <Box bg="gray.100" py={12} mt={8} as={"footer"}>
       <Container>
@@ -32,6 +32,6 @@ function PageFooter() {
       </Container>
     </Box>
   );
-}
+};
 
 export default PageFooter;

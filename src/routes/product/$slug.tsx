@@ -5,11 +5,7 @@ import { Container } from "@chakra-ui/react";
 import ProductSingle from "../../components/product/ProductSingle.tsx";
 import ProductSingleSkeleton from "../../components/product/ProductSingleSkeleton.tsx";
 
-export const Route = createFileRoute("/product/$slug")({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
+const RouteComponent = () => {
   const { slug } = Route.useParams();
   const { isLoading, data } = useQuery({
     queryKey: ["product", slug],
@@ -21,4 +17,7 @@ function RouteComponent() {
       {isLoading ? <ProductSingleSkeleton /> : data && <ProductSingle product={data} />}
     </Container>
   );
-}
+};
+export const Route = createFileRoute("/product/$slug")({
+  component: RouteComponent,
+});

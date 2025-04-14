@@ -3,16 +3,16 @@ import { useCartStore } from "@/store/useCartStore.js";
 import { Link } from "@tanstack/react-router";
 import { Product } from "@/interfaces";
 
-function ProductCard({ product }: { product: Product }) {
+const ProductCard = ({ product }: { product: Product }) => {
   const { addToCart } = useCartStore();
 
   return (
     <Card.Root overflow="hidden" _hover={{ scale: 1.02 }} transition="scale 0.2s">
-      <Link to={`/product/${product.slug}`}>
+      <Link to="/product/$slug" params={{ slug: product.slug }}>
         <Image src={product.images[0]} alt={product.title} objectFit="cover" w="full" h="52" />
       </Link>
       <Card.Body gap="2">
-        <Link to={`/product/${product.slug}`}>
+        <Link to="/product/$slug" params={{ slug: product.slug }}>
           <Card.Title>{product.title}</Card.Title>
         </Link>
         <Card.Description lineClamp="5" mt="auto">
@@ -29,6 +29,6 @@ function ProductCard({ product }: { product: Product }) {
       </Card.Footer>
     </Card.Root>
   );
-}
+};
 
 export default ProductCard;

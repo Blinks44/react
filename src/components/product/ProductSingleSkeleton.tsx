@@ -1,6 +1,6 @@
 import { Flex, Skeleton, SkeletonText } from "@chakra-ui/react";
 
-function ProductSingleSkeleton() {
+const ProductSingleSkeleton = () => {
   return (
     <Flex flexDir={{ base: "column", md: "row" }} gap={4}>
       <Skeleton w={"1/2"} h={"400px"} hideBelow={"md"} />
@@ -13,6 +13,6 @@ function ProductSingleSkeleton() {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default ProductSingleSkeleton;

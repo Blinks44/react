@@ -2,7 +2,7 @@ import { Circle, Box, Container, Flex, Float, Image } from "@chakra-ui/react";
 import { useCartStore } from "@/store/useCartStore.ts";
 import { Link } from "@tanstack/react-router";
 
-function PageHeader() {
+const PageHeader = () => {
   const { cart } = useCartStore();
 
   return (
@@ -35,6 +35,6 @@ function PageHeader() {
       </Container>
     </Box>
   );
-}
+};
 
 export default PageHeader;

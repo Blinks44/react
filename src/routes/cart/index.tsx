@@ -4,11 +4,7 @@ import { Container, SimpleGrid, Text } from "@chakra-ui/react";
 import CartItem from "../../components/cart/CartItem.tsx";
 import PageBanner from "../../components/navigation/PageBanner.tsx";
 
-export const Route = createFileRoute("/cart/")({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
+const RouteComponent = () => {
   const { cart } = useCartStore();
 
   return (
@@ -28,4 +24,8 @@ function RouteComponent() {
       </Container>
     </>
   );
-}
+};
+
+export const Route = createFileRoute("/cart/")({
+  component: RouteComponent,
+});

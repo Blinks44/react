@@ -5,11 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import PageFooter from "../components/navigation/PageFooter.tsx";
 import { Box } from "@chakra-ui/react";
 
-export const Route = createRootRoute({
-  component: RootComponent,
-});
-
-function RootComponent() {
+const RootComponent = () => {
   return (
     <>
       <Box display={"grid"} minH="vh" gridTemplateRows="auto 1fr auto">
@@ -24,4 +20,8 @@ function RootComponent() {
       <ReactQueryDevtools />
     </>
   );
-}
+};
+
+export const Route = createRootRoute({
+  component: RootComponent,
+});

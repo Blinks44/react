@@ -1,7 +1,7 @@
 import { Box, Card, Image } from "@chakra-ui/react";
 import { Product } from "@/interfaces";
 
-function CartItem({ item }: { item: Product }) {
+const CartItem = ({ item }: { item: Product }) => {
   return (
     <Card.Root flexDirection={{ base: "column", md: "row" }} overflow="hidden" alignItems="center">
       <Image
@@ -15,11 +15,11 @@ function CartItem({ item }: { item: Product }) {
       <Box>
         <Card.Body>
           <Card.Title mb="2">{item.title}</Card.Title>
-          <Card.Description lineClamp={3}>{item.description}</Card.Description>
+          <Card.Description lineClamp={2}>{item.description}</Card.Description>
         </Card.Body>
       </Box>
     </Card.Root>
   );
-}
+};
 
 export default CartItem;

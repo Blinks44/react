@@ -7,11 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import getProducts from "../api/getProducts.ts";
 import PageBanner from "../components/navigation/PageBanner.tsx";
 
-export const Route = createFileRoute("/")({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
+const RouteComponent = () => {
   const [filter, setFilter] = useState("");
 
   const { isLoading, data: products } = useQuery({
@@ -69,4 +65,8 @@ function RouteComponent() {
       </Container>
     </>
   );
-}
+};
+
+export const Route = createFileRoute("/")({
+  component: RouteComponent,
+});

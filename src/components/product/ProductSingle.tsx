@@ -2,7 +2,7 @@ import { Badge, Button, Flex, Heading, Image, Separator, Text } from "@chakra-ui
 import { useCartStore } from "@/store/useCartStore.ts";
 import { Product } from "@/interfaces";
 
-function ProductSingle({ product }: { product: Product }) {
+const ProductSingle = ({ product }: { product: Product }) => {
   const { addToCart } = useCartStore();
 
   return (
@@ -34,6 +34,6 @@ function ProductSingle({ product }: { product: Product }) {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default ProductSingle;
