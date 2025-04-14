@@ -1,7 +1,6 @@
 import { createListCollection, Stack, Portal, Select, Skeleton } from "@chakra-ui/react";
 import { useState } from "react";
-import getCategories from "../../api/getCategories.ts";
-import { useQuery } from "@tanstack/react-query";
+import { useCategories } from "@/api/useCategories.ts";
 
 const ProductFilter = ({ handleFilterChange }: { handleFilterChange: Function }) => {
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
@@ -11,10 +10,7 @@ const ProductFilter = ({ handleFilterChange }: { handleFilterChange: Function })
     handleFilterChange(category);
   }
 
-  const { isLoading, data } = useQuery({
-    queryKey: ["categories"],
-    queryFn: getCategories,
-  });
+  const { isLoading, data } = useCategories();
 
   const categoriesCollection = createListCollection({
     items: data?.categoriesForSelect || [],

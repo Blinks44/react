@@ -1,4 +1,5 @@
 import { Category } from "@/interfaces";
+import { useQuery } from "@tanstack/react-query";
 
 interface SelectOption {
   label: string;
@@ -10,7 +11,7 @@ interface CategoriesResponse {
   categoriesForSelect: SelectOption[];
 }
 
-const getCategories = async (): Promise<CategoriesResponse> => {
+const fetchCategories = async (): Promise<CategoriesResponse> => {
   const res = await fetch("https://api.escuelajs.co/api/v1/categories");
   const categories: Category[] = await res.json();
 
@@ -25,4 +26,8 @@ const getCategories = async (): Promise<CategoriesResponse> => {
   };
 };
 
-export default getCategories;
+export const useCategories = () =>
+  useQuery({
+    queryKey: ["categories"],
+    queryFn: fetchCategories,
+  });

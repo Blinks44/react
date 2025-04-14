@@ -3,17 +3,13 @@ import ProductCard from "../components/product/ProductCard.tsx";
 import { useState } from "react";
 import ProductFilter from "../components/product/ProductFilter.tsx";
 import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
-import getProducts from "../api/getProducts.ts";
+import { useProducts } from "../api/useProducts.ts";
 import PageBanner from "../components/navigation/PageBanner.tsx";
 
 const RouteComponent = () => {
   const [filter, setFilter] = useState("");
 
-  const { isLoading, data: products } = useQuery({
-    queryKey: ["products", filter],
-    queryFn: getProducts,
-  });
+  const { isLoading, data: products } = useProducts(filter);
 
   function handleFilterChange(filter: string) {
     setFilter(filter);

@@ -1,16 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
-import getProduct from "../../api/getProduct.ts";
+import { useProduct } from "@/api/useProduct.ts";
 import { Container } from "@chakra-ui/react";
 import ProductSingle from "../../components/product/ProductSingle.tsx";
 import ProductSingleSkeleton from "../../components/product/ProductSingleSkeleton.tsx";
 
 const RouteComponent = () => {
   const { slug } = Route.useParams();
-  const { isLoading, data } = useQuery({
-    queryKey: ["product", slug],
-    queryFn: getProduct,
-  });
+  const { isLoading, data } = useProduct(slug);
 
   return (
     <Container mt={8}>
@@ -18,6 +14,7 @@ const RouteComponent = () => {
     </Container>
   );
 };
+
 export const Route = createFileRoute("/product/$slug")({
   component: RouteComponent,
 });
