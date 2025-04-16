@@ -18,7 +18,9 @@ const CartItem = ({ item }: { item: Product }) => {
       />
       <Box>
         <Card.Body p={6}>
-          <Card.Title mb="2">{item.title}</Card.Title>
+          <Card.Title mb="2">
+            {item.title} - {item.quantity}
+          </Card.Title>
           <Card.Description lineClamp={2}>{item.description}</Card.Description>
         </Card.Body>
       </Box>

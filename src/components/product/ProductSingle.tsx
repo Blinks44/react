@@ -11,7 +11,7 @@ const ProductSingle = ({ product }: { product: Product }) => {
 
       <Flex flexDir={"column"} alignItems={"flex-start"}>
         <Heading as={"h1"} fontSize={{ md: "2xl" }}>
-          {product.title} - {product.id}
+          {product.title}
         </Heading>
         <Badge mt={2}>{product.category.name}</Badge>
         <Separator mt={4} w={20} borderColor={"black"} size={"lg"} />
