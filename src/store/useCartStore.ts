@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { CartStore } from "@/interfaces";
+import { CartStore, Product } from "@/interfaces";
 
 export const useCartStore = create<CartStore>((set) => ({
   cart: [],
@@ -7,20 +7,25 @@ export const useCartStore = create<CartStore>((set) => ({
   addToCart: (product) =>
     set((state) => {
       const existingProduct = state.cart.find((item) => item.id === product.id);
-      // const totalQuantity =
+      let updatedCart: Product[];
 
       if (existingProduct) {
-        return {
-          cart: state.cart.map((item) =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item,
-          ),
-        };
+        updatedCart = state.cart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item,
+        );
+      } else {
+        updatedCart = [...state.cart, { ...product, quantity: 1 }];
       }
 
-      return { cart: [...state.cart, { ...product, quantity: 1 }] };
+      const totalProducts = updatedCart.reduce((acc, item) => acc + item.quantity, 0);
+
+      return { cart: updatedCart, total: totalProducts };
     }),
   removeFromCart: (id) =>
-    set((state) => ({
-      cart: state.cart.filter((item) => item.id !== id),
-    })),
+    set((state) => {
+      const updatedCart = state.cart.filter((item) => item.id !== id);
+      const totalProducts = updatedCart.reduce((acc, item) => acc + item.quantity, 0);
+
+      return { cart: updatedCart, total: totalProducts };
+    }),
 }));

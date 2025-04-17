@@ -3,7 +3,7 @@ import { useCartStore } from "@/store/useCartStore.ts";
 import { Link } from "@tanstack/react-router";
 
 const PageHeader = () => {
-  const { cart } = useCartStore();
+  const { cart, total } = useCartStore();
 
   return (
     <Box
@@ -26,7 +26,7 @@ const PageHeader = () => {
             {cart.length > 0 && (
               <Float zIndex={-1}>
                 <Circle size="4.5" fontSize="xs" bg="red.500" color="white">
-                  {cart.length}
+                  {total}
                 </Circle>
               </Float>
             )}
